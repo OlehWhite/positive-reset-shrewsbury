@@ -25,8 +25,13 @@ import Image from "next/image";
 import { RatesSurprise } from "../otherPages/rates/RatesSurprise/RatesSurprise";
 import { Feedbacks } from "../components/Feedbacks/Feedbacks";
 import { WEBSITE_TITLE } from "../services/constants";
+import { useGetProjects } from "../services/getInfo";
+
 
 const Rates = () => {
+  const { project } = useGetProjects();
+
+  
   return (
     <>
       <Head>
@@ -138,7 +143,8 @@ const Rates = () => {
               <ul style={{ paddingLeft: 20 }}>
                 <li>Excuse letter for school – Free</li>
                 <li>
-                  Letter from the office – Please call the office: 732-955-4141
+                  Letter from the office – Please call the office:{" "}
+                  {project?.tel}
                 </li>
                 <li>Please call for Discounted Rates</li>
                 <li>Letter from the counselor – $80</li>
